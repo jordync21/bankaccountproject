@@ -4,9 +4,8 @@ import os
 clear = os.system('cls')
 
 is_on = True
-
+print("Welcome to Jojo's Credit Union.")
 while is_on:
-    print("Welcome to Jojo's Credit Union.")
     user = input("Please enter username: ")
     pw = input("Please enter password: ")
     info = BankAccount(username=user, password=pw)
@@ -19,3 +18,4 @@ while is_on:
             info.view_balance(command)
             info.withdraw_balance(command)
             info.deposit_balance(command)
+

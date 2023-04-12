@@ -8,7 +8,7 @@ class BankAccount:
         self.money = 0
 
     def cred_valid(self):
-
+        """""Checks to see if credentials are correct, if not prompts user to try again"""
         for d in bank_data:
 
             if self.username == d['username'] and self.password == d['password']:
@@ -17,6 +17,7 @@ class BankAccount:
         print("Your username and/or password is incorrect. Please try again")
 
     def view_balance(self, command):
+        """""Checks how much money is in account"""
         for d in bank_data:
             money = d['balance']
             if command == 1:
@@ -25,6 +26,7 @@ class BankAccount:
         return money
 
     def withdraw_balance(self, command):
+        """""Withdraws money from account. If withdraw is too big, reads insufficient funds"""
         for d in bank_data:
             money = d['balance']
             if command == 2:
@@ -39,6 +41,7 @@ class BankAccount:
         return money
 
     def deposit_balance(self, command):
+        """""Deposits money into the account."""
         for d in bank_data:
             money = d['balance']
             if command == 3:
