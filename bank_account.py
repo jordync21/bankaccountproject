@@ -19,35 +19,34 @@ class BankAccount:
     def view_balance(self, command):
         """""Checks how much money is in account"""
         for d in bank_data:
-            money = d['balance']
+            self.money = d['balance']
             if command == 1:
                 if self.username == d['username']:
-                    print(f'Your balance is ${money}')
-        return money
+                    print(f'Your balance is ${self.money}')
+        return self.money
 
     def withdraw_balance(self, command):
         """""Withdraws money from account. If withdraw is too big, reads insufficient funds"""
         for d in bank_data:
-            money = d['balance']
+            self.money = d['balance']
             if command == 2:
                 if self.username == d['username']:
-                    print(f'Your current balance is ${money}')
+                    print(f'Your current balance is ${self.money}')
                     withdraw = float(input("How much do you want to withdraw? $"))
-                    if money > withdraw:
-                        money -= withdraw
-                        print(f'Your new balance is ${money}')
-                    elif withdraw > money:
+                    if self.money > withdraw:
+                        self.money -= withdraw
+                        print(f'Your new balance is ${self.money}')
+                    elif withdraw > self.money:
                         print('Insufficient funds. Please try again.')
-        return money
 
     def deposit_balance(self, command):
         """""Deposits money into the account."""
         for d in bank_data:
-            money = d['balance']
+            self.money = d['balance']
             if command == 3:
                 if self.username == d['username']:
-                    print(f'Your current balance is ${money}')
+                    print(f'Your current balance is ${self.money}')
                     withdraw = float(input("How much do you want to deposit? $"))
-                    money += withdraw
-                    print(f"Your new balance is ${money}")
-        return money
+                    self.money += withdraw
+                    print(f"Your new balance is ${self.money}")
+        return self.money
